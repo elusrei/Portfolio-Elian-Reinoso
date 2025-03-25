@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elian Reinoso | Técnico y Creativo Multimedia</title>
+    <meta name="description" content="Portfolio profesional de Elian Reinoso, especialista en tecnología y creatividad multimedia.">
+    
+    <!-- Google Fonts - Añadimos más variantes de peso para las fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Elian Reinoso</h1>
+        <p>Técnico y creativo multimedia</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Project Sections -->
+        <div class="projects-container">
+            <!-- Project 1 -->
+            <section class="project-section" id="project-1">
+                <div class="project-main">
+                    <div class="project-grid">
+                        <div class="project-info">
+                            <h2>Cyber Voyage</h2>
+                            <div class="project-image">
+                                <img src="src/img/cyber-voyage.png" alt="Flyer Cyber Voyage">
+                            </div>
+                        </div>
+                        <div class="project-video-container">
+                            <p class="video-description">Proyecto de diseño interactivo que combina elementos visuales y sonoros para crear una experiencia inmersiva. Utilizando tecnologías de vanguardia para lograr una interacción fluida y natural con el usuario.</p>
+                            
+                            <ul class="project-items">
+                                <li>Diseño de interfaz interactiva</li>
+                                <li>Programación de efectos visuales</li>
+                                <li>Composición de audio inmersivo</li>
+                                <li>Optimización para dispositivos móviles</li>
+                                <li>Pruebas de usabilidad con usuarios</li>
+                            </ul>
+                            
+                            <div class="project-video">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video de Cyber Voyage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="expand-button" aria-expanded="false" aria-controls="details-diseno-interactivo">
+                        <span>Ver más detalles</span>
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div class="project-details" id="details-diseno-interactivo">
+                    <div class="details-content">
+                        <!-- Prepro Section -->
+                        <div class="details-grid">
+                            <div class="details-info">
+                                <h3>Preproducción</h3>
+                                <p>El proceso de preproducción incluyó investigación de usuario, wireframes y prototipos interactivos para validar la experiencia antes de la implementación.</p>
+                            </div>
+                            <div class="details-image">
+                                <img src="https://via.placeholder.com/500x300" alt="Preproducción de Cyber Voyage">
+                            </div>
+                        </div>
+                        <!-- Prod Section -->
+                        <div class="details-grid">
+                            <div class="details-info">
+                                <h3>Producción</h3>
+                                <p>La producción final incorporó tecnologías de seguimiento de movimiento y respuesta en tiempo real, optimizando el rendimiento para diferentes dispositivos.</p>
+                            </div>
+                            <div class="details-image">
+                                <img src="https://via.placeholder.com/500x300" alt="Producción de Cyber Voyage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secondary Section - Other Projects -->
+        <section class="other-projects">
+            <div class="other-projects-header">
+                <h2>Otros proyectos</h2>
+                <p>Explora más trabajos que demuestran mi versatilidad como técnico y artista multimedia, desde diseño gráfico hasta desarrollo de aplicaciones interactivas.</p>
+            </div>
+            
+            <div class="gallery-container">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <h3>Diseño Web</h3>
+                    <div class="gallery-slider">
+                        <div class="gallery-slides">
+                            <img src="https://via.placeholder.com/400x300" alt="Diseño Web - Imagen 1" class="active">
+                            <img src="https://via.placeholder.com/400x300" alt="Diseño Web - Imagen 2">
+                            <img src="https://via.placeholder.com/400x300" alt="Diseño Web - Imagen 3">
+                        </div>
+                        <button class="gallery-prev" aria-label="Imagen anterior">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="gallery-next" aria-label="Siguiente imagen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <p>Diseño y desarrollo de sitios web responsivos con enfoque en la experiencia de usuario y optimización para diferentes dispositivos y navegadores.</p>
+                    <h4>Diseño Web</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Elian Reinoso. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
