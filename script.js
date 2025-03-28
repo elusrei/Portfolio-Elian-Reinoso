@@ -13,14 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (isExpanded) {
                 this.setAttribute('aria-expanded', 'false');
-                this.querySelector('span').textContent = 'Ver más detalles';
+                this.querySelector('span').textContent = 'Proceso';
                 detailsElement.classList.remove('expanded');
-                detailsElement.style.maxHeight = '0';
             } else {
                 this.setAttribute('aria-expanded', 'true');
-                this.querySelector('span').textContent = 'Ocultar detalles';
+                this.querySelector('span').textContent = 'Ocultar Proceso';
                 detailsElement.classList.add('expanded');
-                detailsElement.style.maxHeight = detailsElement.scrollHeight + 'px';
             }
         });
     });
@@ -91,11 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
         startAutoplay();
     });
     
-    // Add responsive behavior for iframe videos
-    function resizeIframes() {
-        const iframes = document.querySelectorAll('.project-video iframe');
-        iframes.forEach(iframe => {
-            const container = iframe.parentElement;
+    // Add responsive behavior for videos
+    function resizeVideos() {
+        const videos = document.querySelectorAll('.project-video video');
+        videos.forEach(video => {
+            const container = video.parentElement;
             const containerWidth = container.offsetWidth;
             const containerHeight = containerWidth * (9/16); // 16:9 aspect ratio
             container.style.height = `${containerHeight}px`;
@@ -103,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initial resize
-    resizeIframes();
+    resizeVideos();
     
     // Resize on window resize
-    window.addEventListener('resize', resizeIframes);
+    window.addEventListener('resize', resizeVideos);
 });

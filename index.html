@@ -6,7 +6,7 @@
     <title>Elian Reinoso | Técnico y Creativo Multimedia</title>
     <meta name="description" content="Portfolio profesional de Elian Reinoso, especialista en tecnología y creatividad multimedia.">
     
-    <!-- Google Fonts - Añadimos más variantes de peso para las fuentes -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <h1>Elian Reinoso</h1>
+        <h1>Elián Exequiel Reinoso</h1>
         <p>Técnico y creativo multimedia</p>
     </header>
 
@@ -32,27 +32,30 @@
                         <div class="project-info">
                             <h2>Cyber Voyage</h2>
                             <div class="project-image">
-                                <img src="src/img/cyber-voyage.png" alt="Flyer Cyber Voyage">
+                                <img src="src/img/cyber-voyage.png"alt="Flyer Cyber Voyage">
                             </div>
                         </div>
-                        <div class="project-video-container">
-                            <p class="video-description">Proyecto de diseño interactivo que combina elementos visuales y sonoros para crear una experiencia inmersiva. Utilizando tecnologías de vanguardia para lograr una interacción fluida y natural con el usuario.</p>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Escena simil anuncio de video juego.
+                            </p>
                             
-                            <ul class="project-items">
-                                <li>Diseño de interfaz interactiva</li>
-                                <li>Programación de efectos visuales</li>
-                                <li>Composición de audio inmersivo</li>
-                                <li>Optimización para dispositivos móviles</li>
-                                <li>Pruebas de usabilidad con usuarios</li>
+                            <ul class="project-list">                        
+                                <li>Diseño de personaje, arma y auto. <strong>KREA.ai en tiempo real</strong></li>
+                                <li>Conversión 2d a 3d. <strong>HuggingFace TRELLIS</strong></li>
+                                <li>Puesta en escena, rigging y animaciones. <strong>Blender</strong></li>
+                                <li>VFX 2D. <strong>Krita</strong></li>
+                                <li>Diseño y composición sonora. <strong>Reaper, SurgeSynth</strong></li>
+                                <li>Realización de Flyer. <strong>InkScape</strong></li>
                             </ul>
                             
                             <div class="project-video">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video de Cyber Voyage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <video src="src/vid/cyber-voyage-video.mp4" controls></video>
                             </div>
                         </div>
                     </div>
                     <button class="expand-button" aria-expanded="false" aria-controls="details-diseno-interactivo">
-                        <span>Ver más detalles</span>
+                        <span>Proceso</span>
                         <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
@@ -63,22 +66,46 @@
                         <!-- Prepro Section -->
                         <div class="details-grid">
                             <div class="details-info">
-                                <h3>Preproducción</h3>
-                                <p>El proceso de preproducción incluyó investigación de usuario, wireframes y prototipos interactivos para validar la experiencia antes de la implementación.</p>
+                                <!--<h3>Elementos Visuales</h3>-->
+                                <p>Prompteando y boceteando con una paleta neón entre verdes y rosa, genero asi una imagen de referencia de cada elemento con <strong>KREA.ai</strong></p>
                             </div>
                             <div class="details-image">
-                                <img src="https://via.placeholder.com/500x300" alt="Preproducción de Cyber Voyage">
+                                <img src="src/img/cyber-voyage-preprod-2.png" alt="Preproducción de Cyber Voyage 2">
+                                <img src="src/img/cyber-voyage-preprod.png" alt="Preproducción de Cyber Voyage">
                             </div>
+                            <div class="details-info">
+                                <p>Utilizando esa imagen generada, la pasé a 3d con <strong>TRELLIS de HuggingFace</strong>.</p>
+                            </div>
+                            <div class="details-image">
+                                <img src="src/img/cyber-voyage-prod.png" alt="Preproducción de Cyber Voyage">
+                            </div>
+                            
                         </div>
                         <!-- Prod Section -->
                         <div class="details-grid">
                             <div class="details-info">
-                                <h3>Producción</h3>
-                                <p>La producción final incorporó tecnologías de seguimiento de movimiento y respuesta en tiempo real, optimizando el rendimiento para diferentes dispositivos.</p>
+                                <!--<h3>Producción</h3>-->
+                                <p>En <strong>Blender</strong> armé un escenografía donde animé el rigging del personaje y le ajuste el movimiento del arma. Para finalizar, animé un movimiento de camara ajustando una iluminación.</p>
                             </div>
                             <div class="details-image">
-                                <img src="https://via.placeholder.com/500x300" alt="Producción de Cyber Voyage">
+                                <img src="src/img/cyber-voyage-montaje.png" alt="Producción de Cyber Voyage">
                             </div>
+                            
+                        </div>
+                        <div class="details-grid">
+                            <div class="details-info">
+                                <p>Luego en <strong>Krita</strong> le agregué los efectos de disparo a los fotogramas correspondientes.</p>
+                            </div>
+                            <div class="details-image">
+                                <img src="src/img/cyber-voyage-postpro-1.png" alt="Post-producción de Cyber Voyage">
+                            </div>
+                            <div class="details-info">
+                                <p>Con cada fotograma hice una versión mejorada del efecto con AI que superpuse variando los modos de fusión.</p>
+                            </div>
+                            <div class="details-image">
+                                <img src="src/img/cyber-voyage-postpro-2.png" alt="Post-producción de Cyber Voyage">
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
