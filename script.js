@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     galleryItems.forEach(item => {
-        const slides = item.querySelectorAll('.gallery-slides img');
+        const slides = item.querySelectorAll('.gallery-slides img, .video-slide');
         const prevBtn = item.querySelector('.gallery-prev');
         const nextBtn = item.querySelector('.gallery-next');
         let currentIndex = 0;
@@ -91,12 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add responsive behavior for videos
     function resizeVideos() {
-        const videos = document.querySelectorAll('.project-video video');
+        const videos = document.querySelectorAll('.project-video video, .video-container video');
         videos.forEach(video => {
             const container = video.parentElement;
-            const containerWidth = container.offsetWidth;
-            const containerHeight = containerWidth * (9/16); // 16:9 aspect ratio
-            container.style.height = `${containerHeight}px`;
+            if (container.classList.contains('project-video') || container.classList.contains('video-container')) {
+                const containerWidth = container.offsetWidth;
+                const containerHeight = containerWidth * (9/16); // 16:9 aspect ratio
+                container.style.height = `${containerHeight}px`;
+            }
         });
     }
     
@@ -105,4 +107,63 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Resize on window resize
     window.addEventListener('resize', resizeVideos);
+    
+    // Autoplay videos when they come into view
+    const autoplayVideos = document.querySelectorAll('.autoplay-video');
+    
+    // Create an Intersection Observer
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            
+            if (entry.isIntersecting) {
+                // Video is in view, play it
+                video.play();
+            } else {
+                // Video is out of view, pause it
+                video.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Observe each video
+    autoplayVideos.forEach(video => {
+        videoObserver.observe(video);
+        
+        // Add hover event for sound
+        const container = video.closest('.project-video') || video.closest('.video-container') || video.closest('.video-slide');
+        
+        if (container) {
+            // On hover, unmute with fade in
+            container.addEventListener('mouseenter', () => {
+                video.muted = false;
+                
+                // Fade in volume
+                let volume = 0;
+                const fadeIn = setInterval(() => {
+                    volume += 0.1;
+                    if (volume >= 1) {
+                        volume = 1;
+                        clearInterval(fadeIn);
+                    }
+                    video.volume = volume;
+                }, 100);
+            });
+            
+            // On mouse leave, mute with fade out
+            container.addEventListener('mouseleave', () => {
+                // Fade out volume
+                let volume = video.volume;
+                const fadeOut = setInterval(() => {
+                    volume -= 0.1;
+                    if (volume <= 0) {
+                        volume = 0;
+                        clearInterval(fadeOut);
+                        video.muted = true;
+                    }
+                    video.volume = volume;
+                }, 100);
+            });
+        }
+    });
 });
