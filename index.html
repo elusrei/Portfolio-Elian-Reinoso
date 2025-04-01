@@ -13,6 +13,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css">
 </head>
 <body>
     <!-- Header -->
@@ -223,8 +224,9 @@
                                 <p>Proceso de incubación de ideas y pruebas de concepto.</p>
                             </div>
                             <div class="details-image">
+                                <!-- SILENCE CLASS SILENCIO MUTE-->
                                 <div class="video-container">
-                                    <video src="src/escTeatro-2-incubadora-cae.mp4" controls class="autoplay-video" muted>
+                                    <video src="src/escTeatro-2-incubadora-cae.mp4" controls class="autoplay-video no-sound" muted loop>
                                         <p>Tu navegador no soporta videos HTML5.</p>
                                     </video>
                                     <div class="video-hover-text">(mouse hover para volumen)</div>
@@ -309,47 +311,47 @@
                     <h4>Diseño Gráfico</h4>
                 </div>
 
+                <!-- Ejemplo de cómo añadir título y descripción a las imágenes y videos -->
+
+
+
                 <!-- Gallery Item 2 - Sincrosonovisual -->
                 <div class="gallery-item">
                     <h3>Sincrosonovisual</h3>
                     <div class="gallery-slider square-gallery">
                         <div class="gallery-slides">
                             <div class="video-slide active">
-                                <video src="src/sincro-sono-visual-ai-1.mp4" controls class="autoplay-video" muted>
+                                <video src="src/sincro-sono-visual-ai-1.mp4" controls class="autoplay-video" data-title="Sincronización Audiovisual AI" data-description="Proyecto experimental que combina inteligencia artificial con composición audiovisual para crear una experiencia inmersiva sincronizada." muted>
+                                    <p>Tu navegador no soporta videos HTML5.</p>
+                                </video>
+                                <div class="video-hover-text">(mouse hover para volumen)</div>
+                            </div>
+                            
+                            <div class="video-slide">
+                                <video src="src/sincro-sono-visual-dubstep.mp4" controls class="autoplay-video" data-title="Sincronización Audiovisual AI" data-description="Proyecto experimental que combina inteligencia artificial con composición audiovisual para crear una experiencia inmersiva sincronizada." muted>
                                     <p>Tu navegador no soporta videos HTML5.</p>
                                 </video>
                                 <div class="video-hover-text">(mouse hover para volumen)</div>
                             </div>
                             <div class="video-slide">
-                                <video src="src/sincro-sono-visual-ai-ITCNS.mp4" controls class="autoplay-video" muted>
+                                <video src="src/sincro-sono-visual-Multi-Sede.mp4" controls class="autoplay-video" data-title="Sincronización Audiovisual AI" data-description="Proyecto experimental que combina inteligencia artificial con composición audiovisual para crear una experiencia inmersiva sincronizada." muted>
                                     <p>Tu navegador no soporta videos HTML5.</p>
                                 </video>
                                 <div class="video-hover-text">(mouse hover para volumen)</div>
                             </div>
                             <div class="video-slide">
-                                <video src="src/sincro-sono-visual-dubstep.mp4" controls class="autoplay-video" muted>
+                                <video src="src/sincro-sono-visual-ysya-2d.mp4" controls class="autoplay-video" data-title="Sincronización Audiovisual AI" data-description="Proyecto experimental que combina inteligencia artificial con composición audiovisual para crear una experiencia inmersiva sincronizada." muted>
                                     <p>Tu navegador no soporta videos HTML5.</p>
                                 </video>
                                 <div class="video-hover-text">(mouse hover para volumen)</div>
                             </div>
                             <div class="video-slide">
-                                <video src="src/sincro-sono-visual-Multi-Sede.mp4" controls class="autoplay-video" muted>
+                                <video src="src/sincro-sono-visual-xs.mp4" controls class="autoplay-video" data-title="Sincronización Audiovisual AI" data-description="Proyecto experimental que combina inteligencia artificial con composición audiovisual para crear una experiencia inmersiva sincronizada." muted>
                                     <p>Tu navegador no soporta videos HTML5.</p>
                                 </video>
                                 <div class="video-hover-text">(mouse hover para volumen)</div>
                             </div>
-                            <div class="video-slide">
-                                <video src="src/sincro-sono-visual-xs.mp4" controls class="autoplay-video" muted>
-                                    <p>Tu navegador no soporta videos HTML5.</p>
-                                </video>
-                                <div class="video-hover-text">(mouse hover para volumen)</div>
-                            </div>
-                            <div class="video-slide">
-                                <video src="src/sincro-sono-visual-ysa-2d.mp4" controls class="autoplay-video" muted>
-                                    <p>Tu navegador no soporta videos HTML5.</p>
-                                </video>
-                                <div class="video-hover-text">(mouse hover para volumen)</div>
-                            </div>
+                            
                         </div>
                         <button class="gallery-prev" aria-label="Video anterior">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -378,5 +380,6 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+    <script src="lightbox.js"></script>
 </body>
 </html>
