@@ -280,6 +280,8 @@ ul {
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 3rem;
+    background-color: #5e4536;
+    padding: 3rem;
 }
 
 .details-grid:last-child {
@@ -287,8 +289,10 @@ ul {
 }
 
 .details-info{
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    
+    text-align: end;    
 }
 
 .details-info h3 {
@@ -304,6 +308,7 @@ ul {
     color: rgba(248, 243, 233, 0.8);
     font-weight: 300;
     line-height: 1.7;
+    padding-bottom: 1.2rem;
 }
 
 .details-image {
