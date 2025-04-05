@@ -277,7 +277,7 @@ ul {
 
 .details-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 3rem;
     background-color: #5e4536;
@@ -293,15 +293,14 @@ ul {
     margin-left: 1rem;
     
     text-align: end;    
+    text-align: right;
 }
 
 .details-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    color: var(--color-accent);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.0625rem;
+    color: var(--color-accent);
 }
 
 .details-info p {
@@ -311,23 +310,36 @@ ul {
     padding-bottom: 1.2rem;
 }
 
-.details.banner{
-    /* que ocupe dos columnas*/
+/* Class for elements that should span 2 columns */
+.details-banner {
+    grid-column: 1 / -1;
+    background-color: var(--color-project-dark);
+    overflow: hidden;
+    border: 1px solid var(--color-accent);
+}
+.details-banner img{
+    width: 100%;
+}
+
+.details-banner video {
+    width: 100%;
+    height: auto;
 }
 
 .details-image {
     background-color: var(--color-project-dark);
     overflow: hidden;
-    border: 1px solid var(--color-accent);
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 1rem;
 }
 
 .details-image img {
     width: 100%;
     height: auto;
     object-fit: contain;
+    border: 1px solid var(--color-accent);
 }
 
 /* Other Projects Section */
@@ -505,6 +517,10 @@ strong{
     color: #dfa783 ;
 }
 
+
+
+  
+
 /* Media Queries */
 @media (min-width: 48rem) {
     .project-grid {
@@ -518,10 +534,12 @@ strong{
     .gallery-container {
         grid-template-columns: 1fr 1fr;
     }
+
 }
 
 @media (min-width: 64rem) {
     .gallery-container {
         grid-template-columns: 1fr 1fr 1fr;
     }
+  
 }

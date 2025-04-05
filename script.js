@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 detailsElement.classList.remove('expanded');
             } else {
                 this.setAttribute('aria-expanded', 'true');
-                this.querySelector('span').textContent = 'Ocultar Proceso';
+                this.querySelector('span').textContent = 'Ocultar';
                 detailsElement.classList.add('expanded');
             }
         });
