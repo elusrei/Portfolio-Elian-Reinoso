@@ -78,12 +78,19 @@ ul {
     font-weight: 700;
 }
 
-.header p {
+.header h2 {
     font-size: 1.75rem;
     color: var(--color-primary);
     font-weight: 300;
     letter-spacing: 0.03125rem;
     text-transform: uppercase;
+}
+
+.header p {
+    padding-top: 2rem;
+    width: 40%;
+    text-align: center;
+    margin: auto;
 }
 
 /* Project Sections */
@@ -203,6 +210,26 @@ ul {
     object-fit: contain;
     border: none;
 }
+
+
+.project-p5js {
+    margin: 1rem auto;
+    height: 100%;
+    width: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.project-p5js iframe {
+    height: 40%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+
+  
 
 /* Actualización para el texto de hover */
 /* Actualización para el texto de hover - ahora en la esquina superior derecha */
@@ -515,6 +542,23 @@ ul {
 
 strong{
     color: #dfa783 ;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-standard);
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+}
+
+a:visited {
+    color: var(--color-accent);
 }
 
 
