@@ -14,6 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="lightbox.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <!-- Header -->
@@ -37,7 +38,8 @@
                                 <img src="src/cyber-voyage.png" alt="Flyer Cyber Voyage">
                             </div>
                         </div>
-                        <div class="project-content">
+                        <div class="project-content flex flex-col">
+                            <div class="my-auto ml-5">
                             <p class="project-description">
                                 Escena simil anuncio de video juego.
                             </p>
@@ -50,8 +52,8 @@
                                 <li>Diseño y composición sonora. <strong>Reaper, SurgeSynth</strong></li>
                                 <li>Realización de Flyer. <strong>InkScape</strong></li>
                             </ul>
-                            
-                            <div class="project-video">
+                            </div>
+                            <div class="project-video mt-auto">
                                 <video src="src/cyber-voyage-video.mp4" controls class="autoplay-video" muted>
                                     <p>Tu navegador no soporta videos HTML5.</p>
                                 </video>
@@ -120,10 +122,10 @@
             <section class="project-section" id="project-2">
                 <div class="project-main">
                     <div class="project-grid">
-                        <div class="project-info">
+                        <div class="project-info flex flex-col">
                             <h2>Arquitectura Brutalista</h2>
                             <h3>Vacía, a intervenir.</h3>
-                            <div class="project-image">
+                            <div class="project-image mt-auto">
                                 <img src="src/iglesia-brutalista-1.png" alt="Iglesia Brutalista">
                             </div>
                         </div>
@@ -234,27 +236,28 @@
                         <div class="project-info">
                             <h2>Intervención Brutalista. En proceso.</h2>
                             <h3>P I L T R I P.</h3>
-                            <div class="project-image">
-                                <img src="src/iglesia-brutalista-1.png" alt="Iglesia Brutalista">
+                            <div class="project-video">
+                                <video src="src/i-b-04.mp4" controls class="autoplay-video" muted></video>
+                                <div class="video-hover-text">(mouse hover para volumen)</div>
                             </div>
                         </div>
-                        <div class="project-content">
+
+                        <div class="flex flex-col project-content">
                             <p class="project-description">
                                 Intervención de drop digital de ropa.
                             </p>
                             
                             <ul class="project-list">                        
-                                <li>Simulacion y diseño de telas. <strong>Marvelous Designer</strong></li>
-                                <li>Diseño personajes 3d 3D. <strong>Blender</strong></li>
-                                <li>Renderizado. <strong>En Blender con Cycles y eeve</strong></li>
-                                <li>Materiales y Texturas. <strong>PBR's y HDRI en Blender</strong></li>
+                                <li><strong>"Trailer"</strong> con registros del proceso</li>
                             </ul>
                             
-                            <div class="project-video">
+                            <div class="project-video mt-auto">
                                 <video src="src/Primer trailer 01.mp4" controls class="autoplay-video" muted></video>
-                                
+                            <div class="video-hover-text">(mouse hover para volumen)</div>
                             </div>
                         </div>
+
+                        
                     </div>
                     <button class="expand-button" aria-expanded="false" aria-controls="details-PILTRIP-brutalista">
                         <span>MAS</span>
@@ -274,9 +277,9 @@
             <section class="project-section" id="project-3">
                 <div class="project-main">
                     <div class="project-grid">
-                        <div class="project-info">
+                        <div class="project-info flex flex-col">
                             <h2>Escenografía Teatro</h2>
-                            <div class="project-image">
+                            <div class="project-image mt-auto">
                                 <img src="src/escTeatro-0-principal1.png" alt="Escenografía Teatro - Principal">
                             </div>
                         </div>
@@ -393,6 +396,88 @@
                 </div>
             </section>
 
+            <!-- Project 3 - EscTeatro -->
+            <section class="project-section" id="project-3">
+                <div class="project-main">
+                    <div class="project-grid">
+                        <div class="project-info flex flex-col">
+                            <h2>Museo Virtual - UNA 20 Años</h2>
+                            <h3>No terminado.</h3>
+                            <div class="project-video mt-auto">
+                                <video src="src/gal-20-03.mp4"  controls class="autoplay-video" muted>
+                                    <p>Tu navegador no soporta videos HTML5.</p>
+                                </video>
+                                <div class="video-hover-text">(mouse hover para volumen)</div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Diseño y desarrollo de Museo 3d Digital.
+                            </p>
+                            
+                            <ul class="project-list">                        
+                                <li>Modelado y renders. <strong>Blender</strong></li>
+                                <li>Interactividad y navegación. <strong>Unity</strong></li>
+                            </ul>
+                            
+                            <div class="project-gallery">
+                                <div class="project-video">
+                                    <video src="src/gal-20-01.mp4" controls class="autoplay-video" muted>
+                                        <p>Tu navegador no soporta videos HTML5.</p>
+                                    </video>
+                                    <div class="video-hover-text">(mouse hover para volumen)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="expand-button" aria-expanded="false" aria-controls="details-gal-20">
+                        <span>Proceso</span>
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div class="project-details" id="details-gal-20">
+                    <div class="details-content">
+                        <div class="details-grid">
+                            <div class="details-info">                           
+                                <p>Diseño de salas personalizada a la obra.</p>
+                                <div class="project-image">
+                                <img src="src/gal-20-04.png" alt="Fondo proyectable">
+                                </div>
+                            </div>
+                             <div class="flex flex-col">                           
+                            <div class="video-container mt-auto">
+                                <video src="src/gal-20-05.mp4" controls class="autoplay-video" muted>
+                                    <p>Tu navegador no soporta videos HTML5.</p>
+                                </video>
+                                <div class="video-hover-text">(mouse hover para volumen)</div>
+                            </div>
+                            </div> 
+                            
+                        </div>
+                        <div class="details-grid">
+                            <div class="details-info">
+                                <p>Menú de Inicio.</p>
+                                <div class="project-image">
+                                    <video src="src/gal-20-06.mp4" controls class="autoplay-video no-sound" muted loop>
+                                        <p>Tu navegador no soporta videos HTML5.</p>
+                                    </video>                                    
+                                </div>
+                            </div>
+                            <div class="details-info">
+                                <p>Escaneo elemento 3d.</p>
+                                <div class="project-image">
+                                    <video src="src/gal-20-07.mp4" controls class="autoplay-video no-sound" muted loop>
+                                        <p>Tu navegador no soporta videos HTML5.</p>
+                                    </video>                                    
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                </div>
+            </section>
+
             <!-- Project 4 - Programación -->
             <section class="project-section" id="project-4">
                 <div class="project-main">
@@ -443,7 +528,7 @@
                         <div class="details-grid">
                             <div class="details-info">
                                 <h3>Identidad Fragmentada - Poetica no-Lineal</h3>
-                                <a href="https://elusrei.github.io/Hipertexto-identidad/"><h3>Visitar pagina</h3></a>
+                                <a href="https://elusrei.github.io/Hipertexto-identidad/" target="_blank"><h3><strong>Visitar pagina</strong></h3></a>
                             </div>
                             <div class="details-banner">
                                 <h4></h4>
@@ -453,7 +538,7 @@
                         <div class="details-grid">
                             <div class="details-info">
                                 <h3>WEB CEAM - "Codigo Abierto"</h3>
-                                <a href="https://elusrei.github.io/Grilla-horarios-y-pisos-multi/index.html"><h3>Visitar pagina</h3></a>
+                                <a href="https://elusrei.github.io/Grilla-horarios-y-pisos-multi/index.html" target="_blank"><h3><strong>Visitar pagina</strong></h3></a>
                             </div>
                             <div class="details-banner">
                                 <h4></h4>
@@ -586,7 +671,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© <span id="current-year"></span> Elian Reinoso. Todos los derechos reservados.</p>
+            <p><span id="current-year"></span> Elián Reinoso.</p>
         </div>
     </footer>
 
