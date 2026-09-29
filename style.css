@@ -1060,3 +1060,85 @@ a:visited {
   
   text-align: center;
 }
+
+/* Marquee Banner Section */
+.marquee-section {
+  margin: 4rem 0 2rem;
+  overflow: hidden;
+  border-top: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  padding: 3rem 0;
+  background-color: var(--color-bg);
+}
+
+.marquee-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1.25rem;
+}
+
+.marquee-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-dark);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.marquee-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 0 1.25rem;
+}
+
+.marquee-footer p {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  font-weight: 300;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.marquee-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee-scroll 120s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.marquee-content img {
+  height: 350px;
+  width: auto;
+  object-fit: cover;
+  border: 1px solid var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.marquee-content img:hover {
+  transform: scale(1.02);
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 48rem) {
+  .marquee-content img {
+    height: 250px;
+  }
+}
