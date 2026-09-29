@@ -283,4 +283,161 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.gallery-slider .video-slide.active').forEach(slide => {
         setupSingleVideoHover(slide);
     });
+
+    
+    
+    
+    
+    // --- Marquee & Dynamic Scroll Logic ---
+    const marqueeProjectSection = document.getElementById('project-marquee');
+    const marqueeContainer = document.getElementById('marquee-container');
+    const marqueeTrack = document.getElementById('marquee-track');
+    const prevBtn = document.querySelector('.marquee-btn.prev');
+    const nextBtn = document.querySelector('.marquee-btn.next');
+    
+    if (marqueeProjectSection && marqueeContainer && marqueeTrack) {
+        
+        function updateMarqueeScale() {
+            const rect = marqueeProjectSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // For a sticky section of 200vh with a 100vh sticky child:
+            // - When rect.top == windowHeight (just appearing from bottom), scale = 0
+            // - When rect.top == 0 (starts being sticky), scale = 1
+            // - When rect.bottom == windowHeight (stops being sticky), scale = 1
+            // - When rect.bottom == 0 (disappears at top), scale = 0
+            
+            let scale = 0;
+            
+            if (rect.top > 0) {
+                // Enter phase: 0 to windowHeight
+                // progress goes 0 to 1 as it moves from bottom to top
+                let enterProgress = 1 - (rect.top / windowHeight);
+                scale = enterProgress;
+            } else if (rect.top <= 0 && rect.bottom >= windowHeight) {
+                // Sticky phase (it stays at full screen for 100vh)
+                scale = 1;
+            } else if (rect.bottom < windowHeight) {
+                // Exit phase
+                let exitProgress = rect.bottom / windowHeight; // 1 down to 0
+                scale = exitProgress;
+            }
+            
+            if (scale < 0) scale = 0;
+            if (scale > 1) scale = 1;
+            
+            // Easing (easeOutQuad) para que la animación sea smooth
+            scale = 1 - (1 - scale) * (1 - scale);
+            
+            const newHeight = 60 + (340 * scale);
+            
+            const marqueeImages = marqueeProjectSection.querySelectorAll('.marquee-track img');
+            marqueeImages.forEach(img => {
+                img.style.height = `${newHeight}px`;
+            });
+        }
+        
+        window.addEventListener('scroll', updateMarqueeScale);
+        window.addEventListener('resize', updateMarqueeScale);
+        
+
+        // Clonar imágenes para el loop infinito
+        const originalImages = Array.from(marqueeTrack.children);
+        originalImages.forEach(img => {
+            const clone = img.cloneNode(true);
+            marqueeTrack.appendChild(clone);
+        });
+        originalImages.forEach(img => {
+            const clone = img.cloneNode(true);
+            marqueeTrack.appendChild(clone);
+        });
+        
+        // Llamar a updateScale después de clonar para que los clones también se ajusten
+        updateMarqueeScale();
+
+        let isDragging = false;
+        let didDrag = false;
+        let startX;
+        let scrollLeft;
+        let animationId;
+        let speed = 2.0;
+        
+        function autoScroll() {
+            if (!isDragging) {
+                marqueeContainer.scrollLeft += speed;
+                const singleSetWidth = marqueeTrack.scrollWidth / 3;
+                if (marqueeContainer.scrollLeft >= singleSetWidth) {
+                    marqueeContainer.scrollLeft -= singleSetWidth;
+                }
+            }
+            animationId = requestAnimationFrame(autoScroll);
+        }
+        
+        autoScroll();
+        
+        // Drag Events
+        marqueeContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            didDrag = false;
+            startX = e.pageX - marqueeContainer.offsetLeft;
+            scrollLeft = marqueeContainer.scrollLeft;
+            cancelAnimationFrame(animationId);
+            marqueeContainer.style.cursor = 'grabbing';
+        });
+        
+        marqueeContainer.addEventListener('mouseleave', () => {
+            if(isDragging) {
+                isDragging = false;
+                marqueeContainer.style.cursor = 'grab';
+                autoScroll();
+            }
+        });
+        
+        marqueeContainer.addEventListener('mouseup', () => {
+            isDragging = false;
+            marqueeContainer.style.cursor = 'grab';
+            autoScroll();
+        });
+        
+        marqueeContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            didDrag = true;
+            e.preventDefault();
+            const x = e.pageX - marqueeContainer.offsetLeft;
+            const walk = (x - startX) * 2; 
+            marqueeContainer.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Lightbox integration on click
+        marqueeTrack.addEventListener('click', (e) => {
+            if (didDrag) {
+                e.preventDefault();
+                return; // Prevent clicking if the user was dragging
+            }
+            
+            if (e.target.tagName === 'IMG') {
+                const allImages = Array.from(marqueeTrack.querySelectorAll('img'));
+                const index = allImages.indexOf(e.target);
+                if (window.galleryLightbox) {
+                    window.galleryLightbox.open(marqueeTrack, index);
+                }
+            }
+        });
+        
+        // Button Events
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                marqueeContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', () => {
+                marqueeContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+            
+            prevBtn.addEventListener('mouseenter', () => cancelAnimationFrame(animationId));
+            prevBtn.addEventListener('mouseleave', () => autoScroll());
+            nextBtn.addEventListener('mouseenter', () => cancelAnimationFrame(animationId));
+            nextBtn.addEventListener('mouseleave', () => autoScroll());
+        }
+    }
+
 });
