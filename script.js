@@ -297,6 +297,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (marqueeProjectSection && marqueeContainer && marqueeTrack) {
         
+        // Obtenemos la posición inicial real al cargar la página
+        let absoluteTop = 0;
+        if (marqueeProjectSection) {
+            absoluteTop = marqueeProjectSection.getBoundingClientRect().top + window.scrollY;
+        }
+
         function updateMarqueeScale() {
             const rect = marqueeProjectSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
@@ -306,18 +312,25 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let scale = 0;
             
-            if (rect.top > stickyTop) {
-                // Enter phase: 0 to 1 as it moves from bottom (windowHeight) to stickyTop
-                let totalEnterDist = windowHeight - stickyTop;
-                let currentDist = windowHeight - rect.top;
-                scale = currentDist / totalEnterDist;
-            } else if (rect.top <= stickyTop && rect.bottom >= windowHeight) {
+            if (rect.top <= stickyTop && rect.bottom >= windowHeight) {
                 // Sticky phase (stuck at 20vh)
                 scale = 1;
             } else if (rect.bottom < windowHeight) {
                 // Exit phase
                 let exitProgress = rect.bottom / windowHeight; // 1 down to 0
                 scale = exitProgress;
+            } else {
+                // Enter phase: 
+                // Empieza 100% chico cuando scrollY == 0
+                // Alcanza el 100% grande cuando llega al stickyTop
+                
+                // Recalculamos absoluteTop por si la pantalla cambió de tamaño
+                absoluteTop = rect.top + window.scrollY;
+                
+                let totalScrollNeeded = absoluteTop - stickyTop;
+                if (totalScrollNeeded < 1) totalScrollNeeded = 1; // Evitar división por cero
+                
+                scale = window.scrollY / totalScrollNeeded;
             }
             
             if (scale < 0) scale = 0;
