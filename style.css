@@ -1000,7 +1000,8 @@ a:visited {
 /* Edge to edge marquee */
 #project-marquee {
   width: 100vw;
-  height: 200vh; /* gives scrolling room for the sticky effect */
+  height: 200vh;
+  margin-top: 15vh; /* Arranca un poco más abajo para no tapar el encabezado */
   position: relative;
   left: 50%;
   right: 50%;
@@ -1009,12 +1010,11 @@ a:visited {
   border-left: none;
   border-right: none;
   border-radius: 0;
-  overflow: visible; /* FIX STICKY SCROLLING */
+  overflow: visible;
 }
 #project-marquee .project-main {
   position: sticky;
-  top: 50vh;
-  transform: translateY(-50%);
+  top: 20vh; /* Se pega un poco más arriba del centro, dando espacio */
   height: min-content;
   display: block;
   border-left: none;

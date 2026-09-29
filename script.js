@@ -301,21 +301,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const rect = marqueeProjectSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             
-            // For a sticky section of 200vh with a 100vh sticky child:
-            // - When rect.top == windowHeight (just appearing from bottom), scale = 0
-            // - When rect.top == 0 (starts being sticky), scale = 1
-            // - When rect.bottom == windowHeight (stops being sticky), scale = 1
-            // - When rect.bottom == 0 (disappears at top), scale = 0
+            // The element sticks when rect.top reaches 20vh (0.2 * windowHeight)
+            const stickyTop = windowHeight * 0.2;
             
             let scale = 0;
             
-            if (rect.top > 0) {
-                // Enter phase: 0 to windowHeight
-                // progress goes 0 to 1 as it moves from bottom to top
-                let enterProgress = 1 - (rect.top / windowHeight);
-                scale = enterProgress;
-            } else if (rect.top <= 0 && rect.bottom >= windowHeight) {
-                // Sticky phase (it stays at full screen for 100vh)
+            if (rect.top > stickyTop) {
+                // Enter phase: 0 to 1 as it moves from bottom (windowHeight) to stickyTop
+                let totalEnterDist = windowHeight - stickyTop;
+                let currentDist = windowHeight - rect.top;
+                scale = currentDist / totalEnterDist;
+            } else if (rect.top <= stickyTop && rect.bottom >= windowHeight) {
+                // Sticky phase (stuck at 20vh)
                 scale = 1;
             } else if (rect.bottom < windowHeight) {
                 // Exit phase
