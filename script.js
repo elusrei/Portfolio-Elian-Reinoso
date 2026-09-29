@@ -326,8 +326,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Easing (easeOutQuad) para que la animación sea smooth
             scale = 1 - (1 - scale) * (1 - scale);
             
-            // El mínimo es 30px, el máximo es 520px
-            const newHeight = 30 + (490 * scale);
+            // El mínimo es 180px, el máximo es 520px
+            const newHeight = 180 + (340 * scale);
             
             const marqueeImages = marqueeProjectSection.querySelectorAll('.marquee-track img');
             marqueeImages.forEach(img => {
