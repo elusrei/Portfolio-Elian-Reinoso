@@ -297,40 +297,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (marqueeProjectSection && marqueeContainer && marqueeTrack) {
         
-        // Obtenemos la posición inicial real al cargar la página
-        let absoluteTop = 0;
-        if (marqueeProjectSection) {
-            absoluteTop = marqueeProjectSection.getBoundingClientRect().top + window.scrollY;
-        }
-
         function updateMarqueeScale() {
             const rect = marqueeProjectSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             
-            // The element sticks when rect.top reaches 20vh (0.2 * windowHeight)
+            // The element sticks when rect.top reaches 20vh
             const stickyTop = windowHeight * 0.2;
             
             let scale = 0;
             
-            if (rect.top <= stickyTop && rect.bottom >= windowHeight) {
-                // Sticky phase (stuck at 20vh)
-                scale = 1;
-            } else if (rect.bottom < windowHeight) {
-                // Exit phase
+            if (rect.bottom < windowHeight) {
+                // Exit phase: shrinks as it leaves the screen
                 let exitProgress = rect.bottom / windowHeight; // 1 down to 0
                 scale = exitProgress;
             } else {
-                // Enter phase: 
-                // Empieza 100% chico cuando scrollY == 0
-                // Alcanza el 100% grande cuando llega al stickyTop
-                
-                // Recalculamos absoluteTop por si la pantalla cambió de tamaño
-                absoluteTop = rect.top + window.scrollY;
-                
-                let totalScrollNeeded = absoluteTop - stickyTop;
-                if (totalScrollNeeded < 1) totalScrollNeeded = 1; // Evitar división por cero
-                
-                scale = window.scrollY / totalScrollNeeded;
+                // Enter and Sticky phase combined:
+                // Hacemos que crezca suavemente en base a la cantidad de scroll absoluto.
+                // Tomará un equivalente al 80% de la altura de la pantalla (0.8 * windowHeight) 
+                // en llegar a su tamaño máximo (escala 1).
+                // Así evitamos que crezca "de toque" en un solo frame.
+                const scrollDistanceToMax = windowHeight * 0.8;
+                scale = window.scrollY / scrollDistanceToMax;
             }
             
             if (scale < 0) scale = 0;
@@ -339,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Easing (easeOutQuad) para que la animación sea smooth
             scale = 1 - (1 - scale) * (1 - scale);
             
-            // El mínimo es 30px (mitad de 60px), el máximo es 520px (130% de 400px)
+            // El mínimo es 30px, el máximo es 520px
             const newHeight = 30 + (490 * scale);
             
             const marqueeImages = marqueeProjectSection.querySelectorAll('.marquee-track img');
